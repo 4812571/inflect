@@ -1,0 +1,4 @@
+project: inflect
+target: fuzz
+cmds:
+- cmd: /out/fuzz.pkg
