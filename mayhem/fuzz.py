@@ -2,14 +2,15 @@
 import atheris
 import sys
 
-import inflect
+with atheris.instrument_imports():
+    import inflect
 
 def testOneInput(data):
     fdp = atheris.FuzzedDataProvider(data)
     num = fdp.ConsumeIntInRange(0, 2)
     str = fdp.ConsumeUnicodeNoSurrogates(256)
     p = inflect.engine()
-
+    
     if num == 0:
         p.plural_adj(str)
     if num == 1:
@@ -18,7 +19,6 @@ def testOneInput(data):
         p.plural_verb(str)
         
 def main():
-    atheris.instrument_all()
     atheris.Setup(sys.argv, testOneInput)
     atheris.Fuzz()
 
