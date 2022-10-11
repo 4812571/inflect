@@ -2,7 +2,7 @@
 import atheris
 import sys
 
-with atheris.instrument_imports():
+with atheris.instrument_imports(enable_loader_override=False):
     import inflect
 
 def testOneInput(data):
