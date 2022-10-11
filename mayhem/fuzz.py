@@ -19,6 +19,7 @@ def testOneInput(data):
         p.plural_verb(str)
         
 def main():
+    atheris.instrument_all()
     atheris.Setup(sys.argv, testOneInput)
     atheris.Fuzz()
 
