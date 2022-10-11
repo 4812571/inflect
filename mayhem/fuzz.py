@@ -2,6 +2,8 @@
 import atheris
 import sys
 
+import inflect
+
 def testOneInput(data):
     fdp = atheris.FuzzedDataProvider(data)
     num = fdp.ConsumeIntInRange(0, 2)
