@@ -2,9 +2,6 @@
 import atheris
 import sys
 
-with atheris.instrument_imports():
-    import inflect
-
 def testOneInput(data):
     fdp = atheris.FuzzedDataProvider(data)
     num = fdp.ConsumeIntInRange(0, 2)
@@ -19,6 +16,7 @@ def testOneInput(data):
         p.plural_verb(str)
         
 def main():
+    atheris.instrument_all()
     atheris.Setup(sys.argv, testOneInput)
     atheris.Fuzz()
 
